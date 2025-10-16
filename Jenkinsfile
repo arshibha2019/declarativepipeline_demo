@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        TOMCAT_HOME = "C:\Program Files\Apache Software Foundation\Tomcat 10.1"   // Path to your Tomcat installation
+        TOMCAT_HOME = "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1"   // Path to your Tomcat installation
     }
 
     stages {
@@ -13,7 +13,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'mvn clean package'
+                bat 'mvn clean package'
             }
         }
 
