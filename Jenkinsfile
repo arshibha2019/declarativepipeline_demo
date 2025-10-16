@@ -16,14 +16,14 @@ pipeline {
 
         stage('Deploy to Tomcat') {
             steps {
-                sh 'cp target/*.war /path/to/tomcat/webapps/'
+                sh 'cp target/*.war C:\Program Files\Apache Software Foundation\Tomcat 10.1\webapps/'
             }
         }
 
         stage('Restart Tomcat') {
             steps {
-                sh '/path/to/tomcat/bin/shutdown.sh || true'
-                sh '/path/to/tomcat/bin/startup.sh'
+                sh 'C:\Program Files\Apache Software Foundation\Tomcat 10.1\bin\shutdown || true'
+                sh '/path/to/tomcat/bin/startup'
             }
         }
     }
