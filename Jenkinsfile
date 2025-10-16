@@ -16,7 +16,7 @@ pipeline {
 
         stage('Deploy to Tomcat') {
             steps {
-                sh 'cp target/*.war C:\Program Files\Apache Software Foundation\Tomcat 10.1\webapps/'
+                sh 'cp target/*.war C:\Program Files\Apache Software Foundation\Tomcat 10.1\webapps'
             }
         }
 
