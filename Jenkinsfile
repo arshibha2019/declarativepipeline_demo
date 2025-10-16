@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+        TOMCAT_HOME = "C:\Program Files\Apache Software Foundation\Tomcat 10.1"   // Path to your Tomcat installation
+    }
 
     stages {
         stage('Checkout') {
@@ -16,14 +19,14 @@ pipeline {
 
         stage('Deploy to Tomcat') {
             steps {
-                sh 'cp target/*.war C:/Program Files/Apache Software Foundation/Tomcat 10.1/webapps'
+                bat 'copy target\\*.war "%TOMCAT_HOME%\\webapps\\"'
             }
         }
 
         stage('Restart Tomcat') {
             steps {
-                sh 'C:/Program Files/Apache Software Foundation/Tomcat 10.1/bin/shutdown || true'
-                sh 'C:/Program Files/Apache Software Foundation/Tomcat 10.1/bin/startup'            }
+                bat '"%TOMCAT_HOME%\\bin\\shutdown.bat" || echo Tomcat not running'
+                bat '"%TOMCAT_HOME%\\bin\\startup.bat"'            }
         }
     }
 }
